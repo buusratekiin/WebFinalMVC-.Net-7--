@@ -1,0 +1,29 @@
+﻿
+@model Service.ViewModels.RegisterVM
+
+<h2> Giriş Yapınız</h2>
+<p style="background-color:red;">@TempData["error"]</p>
+<hr />
+
+
+<form asp-controller="Register" asp-action="Index" method="post">
+
+    <div class="form-group">
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "KullaniciAdi",required="required"  })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.PasswordFor(model => model.Paswordd, new { @class = "form-control", @placeholder = "Şifre",required="required"  })
+        @Html.ValidationMessageFor(model => model.Paswordd)
+    </div>
+
+    <div class="form-group">
+        <p class="submit"><input type="submit" name="commit" value="Giriş"></p>
+    </div>
+
+
+</form>
+
+
+

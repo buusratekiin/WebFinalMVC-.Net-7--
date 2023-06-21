@@ -1,0 +1,47 @@
+﻿@model Service.ViewModels.AwardsVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>@Model.Name~Awards </h1>
+<div>
+    @if (TempData["message"] != null)
+    {
+        @TempData["message"].ToString() @* silindi silinmedi mesajı verir*@
+    }
+
+</div>
+
+
+<p>
+    <a asp-action="Create" asp-route-Filmid="@Model.Filmid">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Award Name
+            </th>
+            <th>
+                Year
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AwardsListItem)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Awardname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+ 
+               
+            </tr>
+        }
+    </tbody>
+</table>
